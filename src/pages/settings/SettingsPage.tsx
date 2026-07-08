@@ -1,4 +1,6 @@
+import { LogOut } from "lucide-react";
 import { useThemeStore } from "@/stores/useThemeStore";
+import { useAuthStore } from "@/stores/useAuthStore";
 import type { ThemeMode } from "@shared/types";
 
 const THEME_OPTIONS: { value: ThemeMode; label: string }[] = [
@@ -10,6 +12,8 @@ const THEME_OPTIONS: { value: ThemeMode; label: string }[] = [
 /** 基本設定画面: テーマ切り替えなど(AI連携・言語設定などは今後のフェーズで追加) */
 export default function SettingsPage() {
   const { mode, setMode } = useThemeStore();
+  const { user, logout } = useAuthStore();
+  const isWeb = window.api.platform === "web";
 
   return (
     <div className="mx-auto max-w-2xl animate-fade-in space-y-6">
@@ -34,6 +38,19 @@ export default function SettingsPage() {
           ))}
         </div>
       </section>
+
+      {isWeb && (
+        <section className="glass-panel rounded-xl2 p-5">
+          <h2 className="mb-3 text-sm font-semibold">アカウント</h2>
+          {user && <p className="mb-3 text-sm text-neutral-500">{user.email} でログイン中</p>}
+          <button
+            onClick={() => void logout()}
+            className="app-no-drag flex items-center gap-1.5 rounded-lg bg-black/5 px-4 py-2 text-sm hover:bg-black/10 dark:bg-white/10 dark:hover:bg-white/15"
+          >
+            <LogOut size={14} /> ログアウト
+          </button>
+        </section>
+      )}
     </div>
   );
 }

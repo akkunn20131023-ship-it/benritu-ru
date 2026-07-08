@@ -83,6 +83,15 @@ export interface UsageStat {
   lastUsedAt: number;
 }
 
+/** アプリの実行環境。TitleBar等が Electron 専用機能の表示可否を判定するのに使う */
+export type Platform = "electron" | "web";
+
+/** Web版のメール+パスワード認証で扱うユーザー情報 (デスクトップ版では常に固定のダミー値) */
+export interface AuthUser {
+  id: string;
+  email: string;
+}
+
 export interface FileEntry {
   name: string;
   path: string;

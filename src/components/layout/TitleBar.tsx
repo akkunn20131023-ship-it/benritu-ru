@@ -8,11 +8,13 @@ export function TitleBar() {
   const [maximized, setMaximized] = useState(false);
   const setCommandPaletteOpen = useLayoutStore((s) => s.setCommandPaletteOpen);
   const { resolved, setMode } = useThemeStore();
+  const isDesktop = window.api.platform === "electron";
 
   useEffect(() => {
+    if (!isDesktop) return;
     void window.api.window.isMaximized().then(setMaximized);
     return window.api.window.onMaximizedChange(setMaximized);
-  }, []);
+  }, [isDesktop]);
 
   return (
     <div className="app-drag flex h-10 shrink-0 items-center justify-between border-b border-black/5 bg-white/60 pl-3 dark:border-white/5 dark:bg-neutral-900/60">
@@ -38,24 +40,28 @@ export function TitleBar() {
         >
           {resolved === "dark" ? <Sun size={15} /> : <Moon size={15} />}
         </button>
-        <button
-          onClick={() => window.api.window.minimize()}
-          className="app-no-drag flex h-10 w-11 items-center justify-center hover:bg-black/5 dark:hover:bg-white/10"
-        >
-          <Minus size={15} />
-        </button>
-        <button
-          onClick={() => window.api.window.maximize()}
-          className="app-no-drag flex h-10 w-11 items-center justify-center hover:bg-black/5 dark:hover:bg-white/10"
-        >
-          {maximized ? <Copy size={13} /> : <Square size={13} />}
-        </button>
-        <button
-          onClick={() => window.api.window.close()}
-          className="app-no-drag flex h-10 w-11 items-center justify-center hover:bg-red-500 hover:text-white"
-        >
-          <X size={15} />
-        </button>
+        {isDesktop && (
+          <>
+            <button
+              onClick={() => window.api.window.minimize()}
+              className="app-no-drag flex h-10 w-11 items-center justify-center hover:bg-black/5 dark:hover:bg-white/10"
+            >
+              <Minus size={15} />
+            </button>
+            <button
+              onClick={() => window.api.window.maximize()}
+              className="app-no-drag flex h-10 w-11 items-center justify-center hover:bg-black/5 dark:hover:bg-white/10"
+            >
+              {maximized ? <Copy size={13} /> : <Square size={13} />}
+            </button>
+            <button
+              onClick={() => window.api.window.close()}
+              className="app-no-drag flex h-10 w-11 items-center justify-center hover:bg-red-500 hover:text-white"
+            >
+              <X size={15} />
+            </button>
+          </>
+        )}
       </div>
     </div>
   );

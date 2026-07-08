@@ -4,10 +4,12 @@ import type {
   AiConfigPublic,
   AiProviderId,
   AppSettings,
+  AuthUser,
   ChatMessage,
   DuplicateGroup,
   FileEntry,
   NoteItem,
+  Platform,
   TodoItem,
 } from "../shared/types";
 
@@ -16,6 +18,18 @@ import type {
  * main プロセスと通信できる。チャンネル名は shared/types.ts の IPC 定数で一元管理する。
  */
 const api = {
+  /** デスクトップ版であることを示す固定値。Web版 (src/lib/webApi.ts) では "web" になる */
+  platform: "electron" as Platform,
+  /**
+   * デスクトップ版はローカル単一ユーザーのため認証は不要。Web版とインターフェースを揃えるための
+   * スタブ実装 (常にログイン済み扱いの固定ユーザーを返す)。
+   */
+  auth: {
+    me: async (): Promise<AuthUser | null> => ({ id: "local", email: "local@desktop" }),
+    login: async (_email: string, _password: string): Promise<AuthUser> => ({ id: "local", email: "local@desktop" }),
+    signup: async (_email: string, _password: string): Promise<AuthUser> => ({ id: "local", email: "local@desktop" }),
+    logout: async (): Promise<void> => {},
+  },
   settings: {
     get: (): Promise<AppSettings> => ipcRenderer.invoke(IPC.SETTINGS_GET),
     set: <K extends keyof AppSettings>(key: K, value: AppSettings[K]) =>

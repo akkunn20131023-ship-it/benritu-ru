@@ -1,6 +1,12 @@
 import express, { type ErrorRequestHandler } from "express";
 import cookieParser from "cookie-parser";
 import { authRouter } from "../server/routes/auth";
+import { todosRouter } from "../server/routes/todos";
+import { notesRouter } from "../server/routes/notes";
+import { recentRouter } from "../server/routes/recent";
+import { usageRouter } from "../server/routes/usage";
+import { pluginsRouter } from "../server/routes/plugins";
+import { settingsRouter } from "../server/routes/settings";
 
 /**
  * Vercel Serverless Function のエントリポイント。
@@ -17,6 +23,12 @@ app.use(cookieParser());
 
 app.get("/api/health", (_req, res) => res.json({ ok: true }));
 app.use("/api/auth", authRouter);
+app.use("/api/todos", todosRouter);
+app.use("/api/notes", notesRouter);
+app.use("/api/recent", recentRouter);
+app.use("/api/usage", usageRouter);
+app.use("/api/plugins", pluginsRouter);
+app.use("/api/settings", settingsRouter);
 
 // asyncHandler で catch されたエラーはここに集約される (DB接続不可等)。Express の規約により
 // 4引数のミドルウェアを最後に置く必要がある。
