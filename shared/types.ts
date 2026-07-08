@@ -106,6 +106,12 @@ export interface DuplicateGroup {
   paths: string[];
 }
 
+export interface NewsItem {
+  title: string;
+  link: string;
+  pubDate: string;
+}
+
 /** プラグインマニフェスト: プラグインシステムのコア契約 */
 export interface PluginManifest {
   id: string;
@@ -181,6 +187,7 @@ export const IPC = {
   FILE_SHOW_IN_FOLDER: "file:showInFolder",
   FILE_READ_BUFFER: "file:readBuffer",
   FILE_WRITE_BUFFER: "file:writeBuffer",
+  NEWS_LIST: "news:list",
 } as const;
 
 export type IpcChannel = (typeof IPC)[keyof typeof IPC];

@@ -1,6 +1,7 @@
 import { ipcMain, type BrowserWindow } from "electron";
 import { IPC } from "../../shared/types";
 import type { AiProviderId, AppSettings, ChatMessage, NoteItem, TodoItem } from "../../shared/types";
+import { fetchNews } from "../../shared/fetchNews";
 import { settingsStore } from "../settings";
 import { todoRepo, noteRepo, recentRepo, usageRepo } from "../db/repositories";
 import { pluginManager } from "../plugins/PluginManager";
@@ -113,4 +114,6 @@ export function registerIpcHandlers(mainWindow: BrowserWindow): void {
   ipcMain.handle(IPC.FILE_SHOW_IN_FOLDER, (_e, filePath: string) => fsOps.showInFolder(filePath));
   ipcMain.handle(IPC.FILE_READ_BUFFER, (_e, filePath: string) => fsOps.readFileBuffer(filePath));
   ipcMain.handle(IPC.FILE_WRITE_BUFFER, (_e, filePath: string, data: ArrayBuffer) => fsOps.writeFileBuffer(filePath, data));
+
+  ipcMain.handle(IPC.NEWS_LIST, () => fetchNews());
 }

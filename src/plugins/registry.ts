@@ -31,6 +31,7 @@ import { ImageEditorPlugin } from "./builtin/image-editor/ImageEditorPlugin";
 import { ImageOcrPlugin } from "./builtin/image-ocr/ImageOcrPlugin";
 import { VideoToolsPlugin } from "./builtin/video-tools/VideoToolsPlugin";
 import { AudioToolsPlugin } from "./builtin/audio-tools/AudioToolsPlugin";
+import { MemoryMatchPlugin } from "./builtin/memory-match/MemoryMatchPlugin";
 
 /**
  * ビルトインプラグインの静的レジストリ。
@@ -70,4 +71,5 @@ export const BUILTIN_PLUGIN_MODULES: Record<string, PluginModule> = {
   "image-ocr": ImageOcrPlugin,
   "video-tools": VideoToolsPlugin,
   "audio-tools": AudioToolsPlugin,
+  "memory-match": MemoryMatchPlugin,
 };

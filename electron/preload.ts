@@ -8,6 +8,7 @@ import type {
   ChatMessage,
   DuplicateGroup,
   FileEntry,
+  NewsItem,
   NoteItem,
   Platform,
   TodoItem,
@@ -128,6 +129,9 @@ const api = {
     readBuffer: (filePath: string): Promise<Uint8Array> => ipcRenderer.invoke(IPC.FILE_READ_BUFFER, filePath),
     writeBuffer: (filePath: string, data: ArrayBuffer | Uint8Array): Promise<void> =>
       ipcRenderer.invoke(IPC.FILE_WRITE_BUFFER, filePath, data),
+  },
+  news: {
+    list: (): Promise<NewsItem[]> => ipcRenderer.invoke(IPC.NEWS_LIST),
   },
 };
 

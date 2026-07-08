@@ -1,5 +1,5 @@
 import type { OmniSuiteApi } from "../../electron/preload";
-import type { AiConfigPublic, AppSettings, AuthUser, NoteItem, PluginManifest, RecentItem, TodoItem, UsageStat } from "@shared/types";
+import type { AiConfigPublic, AppSettings, AuthUser, NewsItem, NoteItem, PluginManifest, RecentItem, TodoItem, UsageStat } from "@shared/types";
 
 async function apiFetch<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(path, {
@@ -128,6 +128,10 @@ export function createWebApi(): OmniSuiteApi {
       showInFolder: async () => {},
       readBuffer: () => notImplemented("ファイルの読み込み"),
       writeBuffer: () => notImplemented("ファイルの書き込み"),
+    },
+
+    news: {
+      list: () => apiFetch<NewsItem[]>("/api/news"),
     },
   };
 }

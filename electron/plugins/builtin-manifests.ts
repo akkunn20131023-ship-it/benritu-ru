@@ -359,4 +359,15 @@ export const BUILTIN_MANIFESTS: PluginManifest[] = [
     enabled: true,
     builtin: true,
   },
+  {
+    id: "memory-match",
+    name: "神経衰弱",
+    version: "0.1.0",
+    description: "絵柄をそろえる暇つぶしカードゲーム",
+    icon: "Gamepad2",
+    category: "game",
+    entry: "memory-match",
+    enabled: true,
+    builtin: true,
+  },
 ];

@@ -7,6 +7,7 @@ import { recentRouter } from "../server/routes/recent.js";
 import { usageRouter } from "../server/routes/usage.js";
 import { pluginsRouter } from "../server/routes/plugins.js";
 import { settingsRouter } from "../server/routes/settings.js";
+import { newsRouter } from "../server/routes/news.js";
 
 /**
  * Vercel Serverless Function のエントリポイント。
@@ -29,6 +30,7 @@ app.use("/api/recent", recentRouter);
 app.use("/api/usage", usageRouter);
 app.use("/api/plugins", pluginsRouter);
 app.use("/api/settings", settingsRouter);
+app.use("/api/news", newsRouter);
 
 // asyncHandler で catch されたエラーはここに集約される (DB接続不可等)。Express の規約により
 // 4引数のミドルウェアを最後に置く必要がある。
