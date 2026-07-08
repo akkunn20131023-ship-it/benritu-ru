@@ -1,5 +1,5 @@
 import { getPool } from "../db.js";
-import { DEFAULT_SETTINGS, type AppSettings } from "../../shared/types";
+import { DEFAULT_SETTINGS, type AppSettings } from "../../shared/types.js";
 
 /** electron/settings.ts (electron-store) を Postgres + user_id スコープ向けに移植したもの */
 export const settingsRepo = {
