@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-black/5 dark:border-white/10;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-neutral-100 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100;
+    font-family: "Segoe UI Variable", "Yu Gothic UI", "Segoe UI", system-ui, sans-serif;
+    overflow: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-black/15 dark:bg-white/15 rounded-full;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-glass-light dark:bg-glass-dark backdrop-blur-xl border border-white/40 dark:border-white/10 shadow-glass;
+  }
+
+  .app-drag {
+    -webkit-app-region: drag;
+  }
+
+  .app-no-drag {
+    -webkit-app-region: no-drag;
+  }
+
+  .markdown-body h1 {
+    @apply mb-3 mt-4 text-xl font-bold first:mt-0;
+  }
+  .markdown-body h2 {
+    @apply mb-2 mt-4 text-lg font-semibold first:mt-0;
+  }
+  .markdown-body h3 {
+    @apply mb-2 mt-3 text-base font-semibold first:mt-0;
+  }
+  .markdown-body p {
+    @apply mb-3 leading-relaxed;
+  }
+  .markdown-body ul {
+    @apply mb-3 list-disc space-y-1 pl-5;
+  }
+  .markdown-body ol {
+    @apply mb-3 list-decimal space-y-1 pl-5;
+  }
+  .markdown-body a {
+    @apply text-accent underline;
+  }
+  .markdown-body code {
+    @apply rounded bg-black/10 px-1 py-0.5 text-xs dark:bg-white/10;
+  }
+  .markdown-body pre {
+    @apply mb-3 overflow-x-auto rounded-lg bg-black/10 p-3 text-xs dark:bg-white/10;
+  }
+  .markdown-body pre code {
+    @apply bg-transparent p-0;
+  }
+  .markdown-body blockquote {
+    @apply mb-3 border-l-2 border-accent/50 pl-3 text-neutral-500;
+  }
+  .markdown-body table {
+    @apply mb-3 w-full border-collapse text-xs;
+  }
+  .markdown-body th,
+  .markdown-body td {
+    @apply border border-black/10 px-2 py-1 dark:border-white/10;
+  }
+}
