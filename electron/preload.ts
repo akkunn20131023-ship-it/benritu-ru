@@ -26,9 +26,7 @@ const api = {
    */
   auth: {
     me: async (): Promise<AuthUser | null> => ({ id: "local", email: "local@desktop" }),
-    login: async (_email: string, _password: string): Promise<AuthUser> => ({ id: "local", email: "local@desktop" }),
-    signup: async (_email: string, _password: string): Promise<AuthUser> => ({ id: "local", email: "local@desktop" }),
-    logout: async (): Promise<void> => {},
+    ensureSession: async (): Promise<AuthUser> => ({ id: "local", email: "local@desktop" }),
   },
   settings: {
     get: (): Promise<AppSettings> => ipcRenderer.invoke(IPC.SETTINGS_GET),

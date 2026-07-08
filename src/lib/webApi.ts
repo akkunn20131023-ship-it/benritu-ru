@@ -36,13 +36,11 @@ export function createWebApi(): OmniSuiteApi {
   return {
     platform: "web",
 
+    // ログイン画面は無く、ブラウザごとに自動で匿名アカウントが発行される (Cookie は
+    // HttpOnly のため他人からは読み取れず、このブラウザ専用のデータとして分離される)。
     auth: {
       me: () => apiFetch<AuthUser>("/api/auth/me").catch(() => null),
-      login: (email: string, password: string) =>
-        apiFetch<AuthUser>("/api/auth/login", { method: "POST", body: JSON.stringify({ email, password }) }),
-      signup: (email: string, password: string) =>
-        apiFetch<AuthUser>("/api/auth/signup", { method: "POST", body: JSON.stringify({ email, password }) }),
-      logout: () => apiFetch<void>("/api/auth/logout", { method: "POST" }),
+      ensureSession: () => apiFetch<AuthUser>("/api/auth/anonymous", { method: "POST" }),
     },
 
     settings: {

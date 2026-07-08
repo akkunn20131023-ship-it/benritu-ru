@@ -6,7 +6,6 @@ import PluginPage from "@/pages/PluginPage";
 import PluginsSettingsPage from "@/pages/settings/PluginsSettingsPage";
 import SettingsPage from "@/pages/settings/SettingsPage";
 import AiSettingsPage from "@/pages/settings/AiSettingsPage";
-import AuthPage from "@/pages/auth/AuthPage";
 
 // file:// で読み込まれる本番ビルドでも動作するよう HashRouter を使用
 export const router = createHashRouter([
@@ -25,5 +24,4 @@ export const router = createHashRouter([
       { path: "settings/ai", element: <AiSettingsPage /> },
     ],
   },
-  { path: "/login", element: <AuthPage /> },
 ]);
