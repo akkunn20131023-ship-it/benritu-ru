@@ -1,4 +1,6 @@
+import { Check } from "lucide-react";
 import { useThemeStore } from "@/stores/useThemeStore";
+import { ACCENT_PRESETS } from "@/lib/color";
 import type { ThemeMode } from "@shared/types";
 
 const THEME_OPTIONS: { value: ThemeMode; label: string }[] = [
@@ -7,9 +9,9 @@ const THEME_OPTIONS: { value: ThemeMode; label: string }[] = [
   { value: "system", label: "システムに合わせる" },
 ];
 
-/** 基本設定画面: テーマ切り替えなど(AI連携・言語設定などは今後のフェーズで追加) */
+/** 基本設定画面: テーマ・アクセントカラー切り替えなど(AI連携・言語設定などは今後のフェーズで追加) */
 export default function SettingsPage() {
-  const { mode, setMode } = useThemeStore();
+  const { mode, setMode, accentColor, setAccentColor } = useThemeStore();
 
   return (
     <div className="mx-auto max-w-2xl animate-fade-in space-y-6">
@@ -30,6 +32,24 @@ export default function SettingsPage() {
               }`}
             >
               {opt.label}
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <section className="glass-panel rounded-xl2 p-5">
+        <h2 className="mb-3 text-sm font-semibold">アクセントカラー</h2>
+        <div className="flex gap-3">
+          {ACCENT_PRESETS.map((preset) => (
+            <button
+              key={preset.id}
+              onClick={() => setAccentColor(preset.color)}
+              title={preset.label}
+              aria-label={preset.label}
+              style={{ backgroundColor: preset.color }}
+              className="app-no-drag flex h-9 w-9 items-center justify-center rounded-full transition-transform hover:scale-110"
+            >
+              {accentColor === preset.color && <Check size={16} className="text-white" strokeWidth={3} />}
             </button>
           ))}
         </div>

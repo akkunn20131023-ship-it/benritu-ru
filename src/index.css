@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --accent: 59 130 246;
+    --accent-hover: 37 99 235;
+  }
+
   * {
     @apply border-black/5 dark:border-white/10;
   }
