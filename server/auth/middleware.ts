@@ -1,5 +1,5 @@
 import type { Request, Response, NextFunction } from "express";
-import { verifyToken } from "./jwt";
+import { verifyToken } from "./jwt.js";
 
 export const AUTH_COOKIE_NAME = "omnisuite_token";
 

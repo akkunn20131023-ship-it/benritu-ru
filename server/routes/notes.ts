@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { requireAuth, type AuthedRequest } from "../auth/middleware";
-import { migrationGate } from "../db/migrate";
-import { asyncHandler } from "../asyncHandler";
-import { noteRepo } from "../repositories/notes";
+import { requireAuth, type AuthedRequest } from "../auth/middleware.js";
+import { migrationGate } from "../db/migrate.js";
+import { asyncHandler } from "../asyncHandler.js";
+import { noteRepo } from "../repositories/notes.js";
 
 export const notesRouter = Router();
 notesRouter.use(requireAuth, migrationGate);

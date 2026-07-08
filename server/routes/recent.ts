@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { requireAuth, type AuthedRequest } from "../auth/middleware";
-import { migrationGate } from "../db/migrate";
-import { asyncHandler } from "../asyncHandler";
-import { recentRepo } from "../repositories/recent";
+import { requireAuth, type AuthedRequest } from "../auth/middleware.js";
+import { migrationGate } from "../db/migrate.js";
+import { asyncHandler } from "../asyncHandler.js";
+import { recentRepo } from "../repositories/recent.js";
 
 export const recentRouter = Router();
 recentRouter.use(requireAuth, migrationGate);

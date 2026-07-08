@@ -1,4 +1,4 @@
-import { getPool } from "../db";
+import { getPool } from "../db.js";
 import type { UsageStat } from "../../shared/types";
 
 /** electron/db/repositories.ts の usageRepo を Postgres + user_id スコープ向けに移植したもの */

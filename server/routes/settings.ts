@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { requireAuth, type AuthedRequest } from "../auth/middleware";
-import { migrationGate } from "../db/migrate";
-import { asyncHandler } from "../asyncHandler";
-import { settingsRepo } from "../repositories/settings";
+import { requireAuth, type AuthedRequest } from "../auth/middleware.js";
+import { migrationGate } from "../db/migrate.js";
+import { asyncHandler } from "../asyncHandler.js";
+import { settingsRepo } from "../repositories/settings.js";
 import type { AppSettings } from "../../shared/types";
 
 export const settingsRouter = Router();

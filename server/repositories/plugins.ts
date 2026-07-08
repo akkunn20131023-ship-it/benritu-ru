@@ -1,5 +1,5 @@
-import { getPool } from "../db";
-import { BUILTIN_MANIFESTS } from "../../electron/plugins/builtin-manifests";
+import { getPool } from "../db.js";
+import { BUILTIN_MANIFESTS } from "../../electron/plugins/builtin-manifests.js";
 import type { PluginManifest } from "../../shared/types";
 
 /**

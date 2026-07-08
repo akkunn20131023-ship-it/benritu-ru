@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { requireAuth, type AuthedRequest } from "../auth/middleware";
-import { migrationGate } from "../db/migrate";
-import { asyncHandler } from "../asyncHandler";
-import { pluginRepo, pluginStoreRepo } from "../repositories/plugins";
+import { requireAuth, type AuthedRequest } from "../auth/middleware.js";
+import { migrationGate } from "../db/migrate.js";
+import { asyncHandler } from "../asyncHandler.js";
+import { pluginRepo, pluginStoreRepo } from "../repositories/plugins.js";
 
 export const pluginsRouter = Router();
 pluginsRouter.use(requireAuth, migrationGate);

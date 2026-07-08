@@ -1,10 +1,10 @@
 import { randomUUID } from "node:crypto";
 import { Router, type CookieOptions } from "express";
-import { getPool } from "../db";
-import { ensureMigrated } from "../db/migrate";
-import { signToken, verifyToken } from "../auth/jwt";
-import { requireAuth, AUTH_COOKIE_NAME, type AuthedRequest } from "../auth/middleware";
-import { asyncHandler } from "../asyncHandler";
+import { getPool } from "../db.js";
+import { ensureMigrated } from "../db/migrate.js";
+import { signToken, verifyToken } from "../auth/jwt.js";
+import { requireAuth, AUTH_COOKIE_NAME, type AuthedRequest } from "../auth/middleware.js";
+import { asyncHandler } from "../asyncHandler.js";
 
 export const authRouter = Router();
 

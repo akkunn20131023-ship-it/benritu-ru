@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import { getPool } from "../db";
+import { getPool } from "../db.js";
 import type { TodoItem } from "../../shared/types";
 
 /** electron/db/repositories.ts の todoRepo を Postgres + user_id スコープ向けに移植したもの */

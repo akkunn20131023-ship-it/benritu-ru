@@ -1,5 +1,5 @@
 import type { NextFunction, Request, Response } from "express";
-import { getPool } from "../db";
+import { getPool } from "../db.js";
 
 let migrated: Promise<void> | null = null;
 

@@ -1,12 +1,12 @@
 import express, { type ErrorRequestHandler } from "express";
 import cookieParser from "cookie-parser";
-import { authRouter } from "../server/routes/auth";
-import { todosRouter } from "../server/routes/todos";
-import { notesRouter } from "../server/routes/notes";
-import { recentRouter } from "../server/routes/recent";
-import { usageRouter } from "../server/routes/usage";
-import { pluginsRouter } from "../server/routes/plugins";
-import { settingsRouter } from "../server/routes/settings";
+import { authRouter } from "../server/routes/auth.js";
+import { todosRouter } from "../server/routes/todos.js";
+import { notesRouter } from "../server/routes/notes.js";
+import { recentRouter } from "../server/routes/recent.js";
+import { usageRouter } from "../server/routes/usage.js";
+import { pluginsRouter } from "../server/routes/plugins.js";
+import { settingsRouter } from "../server/routes/settings.js";
 
 /**
  * Vercel Serverless Function のエントリポイント。
