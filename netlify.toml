@@ -1,0 +1,15 @@
+# Netlify 用デプロイ設定。
+# ブラウザ内保存(デフォルト)なら DATABASE_URL 等のバックエンド用環境変数は不要。
+[build]
+  command = "npm run build:web"
+  publish = "dist"
+
+[build.environment]
+  # 既定はブラウザ内保存。サーバー同期版にする場合のみ "remote" に変更しバックエンドを用意する。
+  VITE_DATA_MODE = "local"
+
+# ハッシュルーター採用のためSPAリライトは不要だが、直リンク時の安全策として index.html を返す。
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

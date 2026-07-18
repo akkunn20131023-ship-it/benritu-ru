@@ -2,9 +2,74 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: file: blob:; font-src 'self' data:; connect-src 'self' https: blob: data:;" />
-    <title>OmniSuite</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self' blob:; style-src 'self' 'unsafe-inline'; img-src 'self' data: file: blob:; font-src 'self' data:; connect-src 'self' https: wss: ws://localhost:* ws://127.0.0.1:* blob: data:; manifest-src 'self';" />
+
+    <title>Mytnela Flow — 毎日をもっとスムーズに</title>
+    <meta name="description" content="AI・便利ツール・共同作業・オンラインゲームをひとつに。登録不要、URLを開くだけですぐ使えます。データはあなたの端末内に保存。PC・スマホ・タブレット対応。" />
+    <meta name="keywords" content="Mytnela Flow,AI,ToDo,メモ,カレンダー,家計簿,ポモドーロ,共同編集,オンラインゲーム,ルームコード,PWA,無料,登録不要" />
+    <meta name="author" content="Mytnela Flow" />
+    <meta name="theme-color" content="#3b82f6" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Mytnela Flow" />
+
+    <!-- canonical / OG URL はビルド時に %VITE_SITE_URL% (実ドメイン) が埋め込まれる。
+         JS実行後は src/lib/seo.ts が実オリジンへさらに追従する (JS非実行のクロラーは埋め込み値を見る)。 -->
+    <link rel="canonical" href="%VITE_SITE_URL%/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Mytnela Flow" />
+    <meta property="og:title" content="Mytnela Flow — 毎日をもっとスムーズに" />
+    <meta property="og:description" content="AI・便利ツール・共同作業・オンラインゲームをひとつに。登録不要・ブラウザで即利用、データは端末内に保存。" />
+    <meta property="og:url" content="%VITE_SITE_URL%/" />
+    <meta property="og:image" content="%VITE_SITE_URL%/og.svg" />
+    <meta property="og:locale" content="ja_JP" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mytnela Flow — 毎日をもっとスムーズに" />
+    <meta name="twitter:description" content="AI・便利ツール・共同作業・オンラインゲームをひとつに。登録不要・ブラウザで即利用。" />
+    <meta name="twitter:url" content="%VITE_SITE_URL%/" />
+    <meta name="twitter:image" content="%VITE_SITE_URL%/og.svg" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/icon-512.svg" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <!-- 構造化データ (Schema.org / WebApplication) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Mytnela Flow",
+        "slogan": "毎日をもっとスムーズに。",
+        "description": "AI・便利ツール・共同作業・オンラインゲームをひとつにまとめたWebサービス。登録不要でブラウザから利用できます。",
+        "applicationCategory": "ProductivityApplication",
+        "operatingSystem": "Web, Windows, macOS, Linux, Android, iOS",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+        "inLanguage": "ja"
+      }
+    </script>
+
+    <!-- 構造化データ (Schema.org / FAQPage) — ランディングのよくある質問と対応 -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "本当に登録なしで使えますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。アカウント登録・ログイン・メールアドレス・電話番号はすべて不要です。URLを開いた瞬間から使えます。" } },
+          { "@type": "Question", "name": "データはどこに保存されますか？", "acceptedAnswer": { "@type": "Answer", "text": "基本はあなたの端末（ブラウザ内）に保存されます。設定画面からいつでもエクスポート／インポートでバックアップできます。" } },
+          { "@type": "Question", "name": "料金はかかりますか？", "acceptedAnswer": { "@type": "Answer", "text": "無料で使えます。" } },
+          { "@type": "Question", "name": "オフラインでも使えますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。一度開けば、ToDo・メモ・電卓などの基本機能はオフラインでも動作します。" } },
+          { "@type": "Question", "name": "オンライン機能はどうやって参加しますか？", "acceptedAnswer": { "@type": "Answer", "text": "ルームコード・招待URL・QRコードのいずれかで参加できます。登録は不要です。" } }
+        ]
+      }
+    </script>
   </head>
   <body class="bg-transparent">
     <div id="root"></div>

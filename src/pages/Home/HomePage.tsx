@@ -1,3 +1,4 @@
+import { NextThingWidget } from "./widgets/NextThingWidget";
 import { ClockWidget } from "./widgets/ClockWidget";
 import { WeatherWidget } from "./widgets/WeatherWidget";
 import { NewsWidget } from "./widgets/NewsWidget";
@@ -12,6 +13,8 @@ import { StudyTimeWidget } from "./widgets/StudyTimeWidget";
 export default function HomePage() {
   return (
     <div className="mx-auto max-w-6xl space-y-4 animate-fade-in">
+      <NextThingWidget />
+
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <ClockWidget />
         <WeatherWidget />

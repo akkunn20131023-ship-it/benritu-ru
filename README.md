@@ -1,6 +1,8 @@
-# OmniSuite
+# Mytnela Flow
 
-AI搭載オールインワン生活・学習・クリエイターアプリ。Electron + React + TypeScript 製。
+**毎日をもっとスムーズに。** AI・便利ツール・共同作業・オンラインゲームをひとつにまとめた、登録不要で使えるオールインワンWebサービス。Electron デスクトップ版 + 公開Web版 (React + TypeScript)。
+
+> 内部識別子 (localStorage の `omni:` 接頭辞、`omnisuite-favorites`、Cookie `omnisuite_token`、`omnisuite.sqlite`、型名 `OmniSuiteApi` 等) は既存データとの互換のため従来の名称を維持しています。
 
 ## 技術スタック
 

@@ -23,7 +23,7 @@ export function Sidebar() {
     >
       <nav className="flex-1 space-y-4 overflow-y-auto px-2">
         <div>
-          <SidebarLink to="/" icon={Home} label="ホーム" collapsed={sidebarCollapsed} />
+          <SidebarLink to="/app" icon={Home} label="ホーム" collapsed={sidebarCollapsed} />
         </div>
 
         {favorites.length > 0 && (
@@ -80,7 +80,7 @@ function SidebarLink({
   return (
     <NavLink
       to={to}
-      end={to === "/"}
+      end={to === "/app"}
       className={({ isActive }) =>
         clsx(
           "app-no-drag flex items-center gap-3 rounded-md px-2.5 py-2 text-sm transition-colors",

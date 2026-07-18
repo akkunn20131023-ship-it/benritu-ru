@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Mytnela Flow">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g transform="translate(120,175)">
+    <rect width="280" height="280" rx="64" fill="url(#mark)"/>
+    <g fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round">
+      <path d="M56 122 Q 96 78, 140 122 T 224 122"/>
+      <path d="M56 176 Q 96 132, 140 176 T 224 176" opacity="0.6"/>
+    </g>
+  </g>
+  <g transform="translate(470,250)" fill="#fff" font-family="'Segoe UI',system-ui,sans-serif">
+    <text x="0" y="0" font-size="82" font-weight="700">Mytnela Flow</text>
+    <text x="4" y="66" font-size="38" fill="#9ca3af" font-weight="500">毎日をもっとスムーズに。</text>
+    <text x="4" y="124" font-size="28" fill="#60a5fa">AI・便利ツール・共同作業・オンラインゲームをひとつに</text>
+  </g>
+</svg>

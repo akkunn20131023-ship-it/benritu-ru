@@ -42,7 +42,7 @@ export function CommandPalette() {
 
   const commands: Command[] = useMemo(
     () => [
-      { id: "home", label: "ホームへ移動", icon: Home, action: () => navigate("/") },
+      { id: "home", label: "ホームへ移動", icon: Home, action: () => navigate("/app") },
       { id: "settings", label: "設定を開く", icon: Settings, action: () => navigate("/settings") },
       ...plugins
         .filter((p) => p.enabled)

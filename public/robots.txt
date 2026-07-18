@@ -1,0 +1,5 @@
+# Mytnela Flow — 検索エンジン向け設定 (build 時に自動生成)
+User-agent: *
+Allow: /
+
+Sitemap: https://mytnelaflow.app/sitemap.xml

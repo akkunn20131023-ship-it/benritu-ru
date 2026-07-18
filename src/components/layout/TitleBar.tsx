@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Minus, Square, Copy, X, Search, Moon, Sun } from "lucide-react";
+import { Minus, Square, Copy, X, Search, Moon, Sun, Menu } from "lucide-react";
 import { useLayoutStore } from "@/stores/useLayoutStore";
 import { useThemeStore } from "@/stores/useThemeStore";
 
@@ -7,6 +7,7 @@ import { useThemeStore } from "@/stores/useThemeStore";
 export function TitleBar() {
   const [maximized, setMaximized] = useState(false);
   const setCommandPaletteOpen = useLayoutStore((s) => s.setCommandPaletteOpen);
+  const toggleMobileNav = useLayoutStore((s) => s.toggleMobileNav);
   const { resolved, setMode } = useThemeStore();
   const isDesktop = window.api.platform === "electron";
 
@@ -18,18 +19,28 @@ export function TitleBar() {
 
   return (
     <div className="app-drag flex h-10 shrink-0 items-center justify-between border-b border-black/5 bg-white/60 pl-3 dark:border-white/5 dark:bg-neutral-900/60">
-      <div className="flex items-center gap-2 text-sm font-medium">
+      <div className="flex items-center gap-1 text-sm font-medium">
+        <button
+          onClick={toggleMobileNav}
+          className="app-no-drag -ml-1 flex h-8 w-9 items-center justify-center rounded-md text-neutral-500 hover:bg-black/5 md:hidden dark:hover:bg-white/10"
+          title="メニュー"
+          aria-label="メニューを開く"
+        >
+          <Menu size={18} />
+        </button>
         <span className="h-2 w-2 rounded-full bg-accent" />
-        OmniSuite
+        Mytnela Flow
       </div>
 
       <button
         onClick={() => setCommandPaletteOpen(true)}
-        className="app-no-drag flex w-72 items-center gap-2 rounded-md border border-black/5 bg-black/5 px-2.5 py-1 text-xs text-neutral-500 hover:bg-black/10 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+        className="app-no-drag flex w-72 items-center gap-2 rounded-md border border-black/5 bg-black/5 px-2.5 py-1 text-xs text-neutral-500 hover:bg-black/10 max-md:w-9 max-md:justify-center max-md:px-0 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+        title="検索・コマンド"
+        aria-label="検索・コマンド"
       >
         <Search size={13} />
-        検索・コマンド...
-        <kbd className="ml-auto rounded border border-black/10 px-1 text-[10px] dark:border-white/10">Ctrl K</kbd>
+        <span className="max-md:hidden">検索・コマンド...</span>
+        <kbd className="ml-auto rounded border border-black/10 px-1 text-[10px] max-md:hidden dark:border-white/10">Ctrl K</kbd>
       </button>
 
       <div className="flex h-full items-center">

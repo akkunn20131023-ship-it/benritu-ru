@@ -32,6 +32,8 @@ import { ImageOcrPlugin } from "./builtin/image-ocr/ImageOcrPlugin";
 import { VideoToolsPlugin } from "./builtin/video-tools/VideoToolsPlugin";
 import { AudioToolsPlugin } from "./builtin/audio-tools/AudioToolsPlugin";
 import { MemoryMatchPlugin } from "./builtin/memory-match/MemoryMatchPlugin";
+import { FinancePlugin } from "./builtin/finance/FinancePlugin";
+import { RealtimeChatPlugin } from "./builtin/realtime-chat/RealtimeChatPlugin";
 
 /**
  * ビルトインプラグインの静的レジストリ。
@@ -72,4 +74,6 @@ export const BUILTIN_PLUGIN_MODULES: Record<string, PluginModule> = {
   "video-tools": VideoToolsPlugin,
   "audio-tools": AudioToolsPlugin,
   "memory-match": MemoryMatchPlugin,
+  finance: FinancePlugin,
+  "realtime-chat": RealtimeChatPlugin,
 };

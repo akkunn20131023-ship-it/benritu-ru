@@ -7,7 +7,7 @@ import path from "node:path";
 // Vercel のビルド環境では自動的に VERCEL=1 が設定される。Web ビルドでは Electron 関連プラグインを含めない。
 const isWebBuild = !!process.env.VERCEL;
 
-// OmniSuite ビルド設定: renderer(React) と Electron main/preload を単一の Vite プロセスでビルドする
+// Mytnela Flow ビルド設定: renderer(React) と Electron main/preload を単一の Vite プロセスでビルドする
 // (Web版デプロイ時は Electron 関連プラグインを除外し、純粋な静的サイトとしてビルドする)
 export default defineConfig({
   resolve: {

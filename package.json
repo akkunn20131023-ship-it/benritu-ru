@@ -1,11 +1,11 @@
 {
   "name": "omnisuite",
-  "productName": "OmniSuite",
+  "productName": "Mytnela Flow",
   "version": "0.1.0",
-  "description": "AI搭載オールインワン生活・学習・クリエイターアプリ",
+  "description": "Mytnela Flow — AI・便利ツール・共同作業・オンラインゲームをひとつにまとめた、登録不要で使えるオールインワンWebサービス。",
   "main": "dist-electron/main.js",
   "type": "module",
-  "author": "OmniSuite",
+  "author": "Mytnela Flow",
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
@@ -13,9 +13,10 @@
     "dev:web": "vercel dev",
     "build": "tsc -p tsconfig.json --noEmit && vite build && electron-builder",
     "build:renderer": "vite build",
-    "build:web": "vite build",
+    "build:web": "node scripts/gen-seo.mjs && vite build",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "preview": "vite preview",
+    "realtime": "node realtime-server/index.mjs",
     "lint": "eslint . --ext .ts,.tsx"
   },
   "dependencies": {
@@ -43,6 +44,7 @@
     "react-router-dom": "^6.28.1",
     "sql.js": "^1.12.0",
     "tesseract.js": "^5.1.1",
+    "ws": "^8.21.1",
     "xlsx": "^0.18.5",
     "zustand": "^5.0.2"
   },
@@ -55,9 +57,10 @@
     "@types/pdf-parse": "^1.1.4",
     "@types/pg": "^8.11.10",
     "@types/qrcode": "^1.5.5",
-    "@types/sql.js": "^1.4.9",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
+    "@types/sql.js": "^1.4.9",
+    "@types/ws": "^8.18.1",
     "@typescript-eslint/eslint-plugin": "^8.19.1",
     "@typescript-eslint/parser": "^8.19.1",
     "@vercel/node": "^3.2.29",
